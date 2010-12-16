@@ -542,6 +542,38 @@
 						>
 					</File>
 					<File
+						RelativePath=".\ff\vgui\ff_customhudoptions.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\ff\vgui\ff_customhudoptions.h"
+						>
+					</File>
+					<File
+						RelativePath=".\ff\vgui\ff_customhudoptions_arrangementpresets.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\ff\vgui\ff_customhudoptions_arrangementpresets.h"
+						>
+					</File>
+					<File
+						RelativePath=".\ff\vgui\ff_customhudoptions_assignpresets.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\ff\vgui\ff_customhudoptions_assignpresets.h"
+						>
+					</File>
+					<File
+						RelativePath=".\ff\vgui\ff_customhudoptions_stylepresets.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\ff\vgui\ff_customhudoptions_stylepresets.h"
+						>
+					</File>
+					<File
 						RelativePath=".\ff\vgui\ff_dlightoptions.cpp"
 						>
 					</File>
@@ -567,6 +599,14 @@
 					</File>
 					<File
 						RelativePath=".\ff\vgui\ff_optionspage.h"
+						>
+					</File>
+					<File
+						RelativePath=".\ff\vgui\ff_optionspresetpage.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\ff\vgui\ff_optionspresetpage.h"
 						>
 					</File>
 					<File
@@ -619,11 +659,11 @@
 					>
 				</File>
 				<File
-					RelativePath=".\ff\ff_hud_buildstate_base.cpp"
+					RelativePath=".\ff\ff_hud_buildstate_dispenser.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\ff\ff_hud_buildstate_base.h"
+					RelativePath=".\ff\ff_hud_buildstate_dispenser.h"
 					>
 				</File>
 				<File
