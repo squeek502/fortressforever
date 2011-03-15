@@ -23,6 +23,7 @@
 #include <KeyValues.h>
 #include "FileSystem.h"
 #include "ff_options.h"
+#include "ff_customhudoptions_preview.h"
 #include "ff_gamemodes.h"
 #include "ff_training.h"
 
@@ -186,6 +187,7 @@ void VGui_CreateGlobalPanels( void )
 
 	// --> Mirv: Create extra gameui panels
 	ffoptions->Create(uiParent);
+	ffcustomhudpreview->Create(uiParent);
 	ffgamemodes->Create(uiParent);
 	fftraining->Create(uiParent);
 	// <-- Mirv
@@ -213,6 +215,7 @@ void VGui_Shutdown()
 
 	// --> Mirv: Destroy extra gameui panels
 	ffoptions->Destroy();
+	ffcustomhudpreview->Destroy();
 	ffgamemodes->Destroy();
 	fftraining->Destroy();
 	// <-- Mirv
