@@ -128,9 +128,19 @@ public:
 // --> FF
 #define HIDEHUD_SPECTATING			( 1<<11 )	// Hide while spectating
 #define HIDEHUD_UNASSIGNED			( 1<<12 )	// Hide while the local player has not chosen a class or team
+#define HIDEHUD_NOTSCOUT			( 1<<13 )
+#define HIDEHUD_NOTSNIPER			( 1<<14 )
+#define HIDEHUD_NOTSOLDIER			( 1<<15 )
+#define HIDEHUD_NOTDEMOMAN			( 1<<16 )
+#define HIDEHUD_NOTMEDIC			( 1<<17 )
+#define HIDEHUD_NOTHWGUY			( 1<<18 )
+#define HIDEHUD_NOTPYRO				( 1<<19 )
+#define HIDEHUD_NOTSPY				( 1<<20 )
+#define HIDEHUD_NOTENGINEER			( 1<<21 )
+#define HIDEHUD_NOTCIVILIAN			( 1<<22 )
 // <-- FF
 
-#define HIDEHUD_BITCOUNT			13
+#define HIDEHUD_BITCOUNT			23
 
 //===================================================================================================================
 // suit usage bits
