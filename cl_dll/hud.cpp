@@ -746,6 +746,9 @@ bool CHud::IsHidden( int iHudFlags )
 		return true;
 
 	// --> FF
+	if ( iHudFlags & HIDEHUD_ALWAYS )
+		return true;
+
 	if ( ( iHudFlags & HIDEHUD_SPECTATING ) && ( pPlayer->IsObserver() ) )
 		return true;
 
