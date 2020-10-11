@@ -88,7 +88,6 @@ protected:
 	// For center printing
 	float		m_flXOffset;
 	float		m_flYOffset;
-
 	// For color
 	int			m_iTeam;
 	int			m_iClass;
@@ -277,7 +276,7 @@ void CHudCrosshairInfo::OnTick( void )
 				// Default
 				m_iTeam = pHitPlayer->GetTeamNumber();
 				m_iClass = pHitPlayer->GetTeamNumber();
-
+				
 				if ( (pPlayer == pHitPlayer) && (bBuildable) ) // looking at our own buildable
 					bOwnBuildable = true;
 
@@ -308,7 +307,7 @@ void CHudCrosshairInfo::OnTick( void )
 							iLevel = ( ( C_FFSentryGun * )pBuildable )->GetLevel();
 							iRockets = ( ( C_FFSentryGun * )pBuildable )->GetRocketsPercent();
 							iShells = ( ( C_FFSentryGun * )pBuildable )->GetShellsPercent();
-							iArmor = ( ( C_FFSentryGun * )pBuildable )->GetSGArmorPercent();
+							iArmor = ( ( C_FFSentryGun * )pBuildable )->GetAmmoPercent();
 
 							if (iArmor >= 128) //VOOGRU: when the sg has no rockets it would show ammopercent+128.
 								iArmor -= 128;
@@ -464,14 +463,11 @@ void CHudCrosshairInfo::OnTick( void )
 				// Set up local crosshair info struct
 				pPlayer->m_hCrosshairInfo.Set( szName, m_iTeam, m_iClass );
 
-				// Get the screen width/height
-				int iScreenWide, iScreenTall;
-				GetHudSize( iScreenWide, iScreenTall );
+				// NOW! Remember team is 1 higher than the actual team
+				// If health/armor are -1 then we don't show it
 
-				// "map" screen res to 640/480
-				float flXScale = 640.0f / iScreenWide;
-				float flYScale = 480.0f / iScreenTall;
-				
+				// Convert to unicode & localize stuff
+
 				const char *pszOldName = szName;
 				int iBufSize = ( int )strlen( pszOldName ) * 2;
 				char *pszNewName = ( char * )_alloca( iBufSize );
@@ -565,7 +561,6 @@ void CHudCrosshairInfo::OnTick( void )
 						_snwprintf( m_pText, 255, L"Your Jump Pad - Health: %s", wszHealth );
 					else
 						_snwprintf( m_pText, 255, L"(%s) %s - H: %s", wszClass, wszName, wszHealth );
-
 				}
 				// else CROSSHAIRTYPE_NORMAL
 				else if( ( iHealth != -1 ) && ( iArmor != -1 ) )
@@ -597,6 +592,10 @@ void CHudCrosshairInfo::OnTick( void )
 
 				if( hud_centerid.GetInt() )
 				{
+					// Get the screen width/height
+					int iScreenWide, iScreenTall;
+					GetHudSize( iScreenWide, iScreenTall );
+
 					int iWide = UTIL_ComputeStringWidth( m_hTextFont, m_pText );
 					int iTall = surface()->GetFontTall( m_hTextFont );
 					int yOffset = 75; // 75 to get it below the crosshair and not right on it
@@ -644,6 +643,5 @@ void CHudCrosshairInfo::Paint( void )
 
 		for( wchar_t *wch = m_pText; *wch != 0; wch++ )
 			surface()->DrawUnicodeChar( *wch );
-
 	}
 }
